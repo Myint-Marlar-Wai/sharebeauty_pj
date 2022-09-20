@@ -1,0 +1,4 @@
+/.docker-sync/
+/.env
+/web-variables.env
+

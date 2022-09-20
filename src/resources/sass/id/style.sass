@@ -1,0 +1,497 @@
+@import ../common/common
+
+.form
+  .field
+    @include inputfield
+    .input_form
+      width: 50%
+.btn
+  @include btn01()
+
+.btn01
+  padding-top: 11px
+  padding-bottom: 11px
+  border-radius: 5px
+  width: 100%
+  display: block
+  color: $color1
+  background: #fff
+  text-align: center
+  margin-right: auto
+  margin-left: auto
+  border:1px solid $border-color
+  @include notofont()
+  font-weight: 700
+  margin-top: 30px
+
+.btn02
+  padding-top: 15px
+  padding-bottom: 15px
+  border-radius: 30px
+  display: block
+  width: 50%
+  text-align: center
+  margin-right: auto
+  margin-left: auto
+  margin-top: 40px
+  border-color: transparent
+
+.g_btn
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+  width:82%
+  margin-right: auto
+  margin-left: auto
+  background: $color2
+  color: #285ac8
+  padding-top: 11px
+  padding-bottom: 11px
+  border-radius: 8px
+  border: 1px solid $border-color
+
+.forgot_password
+  text-align: center
+  border-bottom: 2px solid #707070
+  padding-bottom: 60px
+  a
+    padding-top: 20px
+    padding-bottom: 5px
+    display: inline-block
+    color: #455ac8
+    font-weight: 700
+    font-size: .75rem
+
+.error_msg
+  @include message()
+  color: $errmsg
+
+.alert_message
+  @include message()
+  padding-top: 20px
+  color: $errmsg
+  text-align: left
+
+.toggle_pwd
+  position: absolute
+  right: 10px
+  top: 50%
+  transform: translateY(-50%)
+
+/* login_form */
+.login
+  &__form
+    &:last-child
+      margin-bottom: 0
+  &__ttl
+    text-align: center
+    font-size: .75rem
+    color: #000
+    padding-bottom: 15px
+    font-weight: 700
+    padding-top:40px
+  .inner
+    padding-bottom: 50px
+
+/* registration_form */
+.registration
+  .inner
+    padding-bottom: 50px
+  &__txt
+    padding-bottom: 20px
+    color: $color1
+    font-size: .75rem
+    p
+      font-size: .75rem
+      font-weight: 500
+      display: flex
+  &__form
+    &__field
+     span
+      position: relative
+
+/* registration_completed */
+.registration_completed,.change_accept_completed
+  .inner
+    padding-bottom: 50px
+  &__ttl
+    text-align: center
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+  &__btn
+    .btn01
+      font-size: .875rem
+
+/* terms_of_service */
+.terms_of_service
+  .inner
+    padding-bottom: 50px
+  &__txt
+    font-size: .625rem
+    font-weight: 500
+    font-feature-settings: "palt"
+    padding-bottom: 20px
+    h4
+      color: $ttlcolor
+      font-weight: 500
+
+/* password setting */
+.pwd_reset,.pwd_setting
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+    display: flex
+  &__form
+    &__label
+      span
+        font-weight: 400
+
+.pwd_reset
+  &__ttl
+    text-align: center
+  &__txt
+    padding-left:0
+  &__form
+    margin-top: 20px
+
+/*password_setting*/
+.pwd_setting
+  .pwd
+    padding-left:0
+  &__form
+    margin-top: 20px
+
+/* password_change */
+.pwd_change 
+  &__txt 
+    padding-bottom: 20px
+    font-size: .75rem
+    font-weight: 500
+    display: flex
+
+/* password_accept_completed */
+.pwd_accept_completed
+  &__txt
+     font-size: .75rem
+     font-weight: 500
+
+/* change_account_info */
+.change_acc_info
+  &__txt
+    font-size: .75rem
+    padding-bottom: 20px
+    font-weight: 500
+    display: flex
+  &__form
+    .label
+      span
+        font-size: .75rem
+        font-weight: 700
+        background: $altmsg
+        color: #fff
+        padding-left: 4px
+        padding-right: 4px
+        margin-left: 5px
+        border-radius:3px
+        padding-bottom: 2px
+    .checkbox_gp
+      display: flex
+      vertical-align: middle
+      align-items: center
+      input[type=radio]
+        display: none
+        &:checked+label
+          background: #60b0d4
+          color:#fff  
+          border: 1px solid #60b0d4 
+      label
+          width:150px
+          border-radius: 8px
+          border:1px solid $border-color
+          padding-top: 13.5px
+          padding-bottom: 13.5px
+          text-align: center
+          @include notofont()
+          font-weight: 700
+          margin-right: 15px
+          &:last-child 
+            margin-right: 0
+  textarea
+    height: 80px
+    padding-top: 5px
+    padding-bottom: 5px
+    padding-left: 10px
+    padding-right: 10px
+    border-radius: 8px
+    resize: none
+    border: 1px solid $border-color
+    outline: none
+    font-size: 1rem
+    @include notofont()
+    &::placeholder
+      font-weight: 700
+      @include notofont()
+      color: $border-color
+
+/* account change */
+.acc_change
+  &__txt
+    padding-bottom:20px
+    font-size: .75rem
+    font-weight: 500
+    display: flex
+
+/* account setting */
+.acc_setting
+  &__list
+    margin-bottom: 20px
+    font-size: .75rem
+    font-weight: 700
+    p
+      padding-left: 20px
+      padding-right: 20px
+      display: block
+      padding-top: 10px
+      a,button
+        color: #195de5
+        border: none
+        background: none
+        @include notofont()
+        font-weight: 700
+        &::after
+          content: "\f101"
+          font-family: "Font Awesome 6 Free"
+          font-weight: 900
+          margin-left:5px
+
+/* account setting google */
+.acc_setting_google
+  .acc_setting__btn_list 
+    padding-bottom: 20px
+  .btn01
+    margin-bottom: 30px
+
+/* contact_form */
+.contact
+  &__txt
+    margin-bottom: 15px
+    display: flex
+    font-size: .625rem
+    font-weight: 500
+  .contact__form
+    &__field
+      .label
+        margin-left: -5px
+        span
+          background: #d25f6c
+          color: #fff
+          padding: 0 4px 1px
+          margin-left: 5px
+          border-radius: 3px
+      &__dropdown
+        background: url('../../images/ico_dropdown.png') 
+        background-position-x: 97%
+        background-position-y: 48%
+        background-repeat: no-repeat
+        font-weight: 700
+        cursor: pointer
+        display: block
+        padding-top: 15px
+        padding-bottom: 15px
+        padding-left: 10px
+        padding-right: 10px
+        border-radius: 8px
+        border: 1px solid $border-color
+        font-size: .75rem
+        outline: none
+        appearance: none
+        line-height: 1.5
+        width: 100%
+        background-color: #fff
+        @include notofont()
+        color: $color1
+      textarea
+        height: 80px
+        padding-top: 5px
+        padding-bottom: 5px
+        padding-left: 10px
+        padding-right: 10px
+        border-radius: 8px
+        resize: none
+        border: 1px solid $border-color
+        outline: none
+        font-size: 1rem
+        @include notofont()
+        &::placeholder
+          color: $border-color
+          font-weight: 700
+          @include notofont()
+    &__submit
+        margin-bottom: 50px
+
+/* contact_form_completed */
+.contact_completed
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+
+/* login_contact_form */
+.login_contact
+  .sale_ttl
+    padding-bottom: 20px
+  &__txt
+    display: flex
+    font-size: .75rem
+    font-weight: 500
+.login_contact__form
+  margin-top: 15px
+  &__field
+    .label
+      span
+        background: #d25f6c
+        color: #fff
+        padding: 0 4px 1px
+        margin-left: 5px
+        border-radius: 3px
+    &__dropdown
+      background: url('../../images/ico_dropdown.png')
+      background-position-x: 97%
+      background-position-y: 48%
+      background-repeat: no-repeat
+      font-weight: 700
+      cursor: pointer
+      display: block
+      padding-left: 10px
+      padding-right: 10px
+      padding-top: 15px
+      padding-bottom: 15px
+      border-radius: 5px
+      border: 1px solid $border-color
+      font-size: .75rem
+      outline: none
+      appearance: none
+      line-height: 1.5
+      width: 100%
+      background-color: #fff
+      @include notofont()
+      color: $color1
+    textarea
+      height: 80px
+      padding-top: 5px
+      padding-bottom: 5px
+      padding-left: 10px
+      padding-right: 10px
+      resize: none
+      font-size: 1rem
+      border-radius: 8px
+      border: 1px solid $border-color
+      outline: none
+      @include notofont()
+      &::placeholder
+        color: $border-color
+        font-weight: 700
+        @include notofont()
+    p
+     font-size: 0.75rem
+     font-weight: 500
+     text-transform: uppercase
+     padding-left: 20px
+
+/* login_contact_form_completed */
+.login_contact_completed
+  &__txt
+    color: $color1
+    font-size: .75rem
+    font-weight: 500
+
+/* profile_change */
+.profile_change
+  .check_gp
+    margin-bottom: 0
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+    padding-left: 30px
+    padding-right: 8px
+    letter-spacing: 1.2px 
+    display: flex
+  &__form
+    &__group
+      &__flex
+        display: flex
+        justify-content: space-between
+    .field
+      textarea
+        resize: none
+        height: 80px
+        @include notofont()
+        font-size: 1rem
+        padding-left: 10px
+        padding-right: 10px
+        border: 1px solid #d1d1d1
+        border-radius: 8px
+        padding-top: 9px
+        &::placeholder
+         color: rgba(112,112,112,45%)
+        &:focus
+          outline: none
+      .label 
+        margin-left: -5px
+        span
+          background: #d25f6c
+          color: #fff
+          padding: 0 4px 1px
+          margin-left: 5px
+          border-radius: 3px
+        .any
+          background: #444547
+    .profile_upload
+      width:100px
+      height:100px
+      border:1px solid #707070
+      border-radius: 3px
+      margin-top: 8px
+      margin-left: auto
+      margin-right: auto
+      position: relative
+    .msg
+      .err_alt_msg
+        text-align: center
+      
+    .upload_button
+      display: block
+      position: absolute
+      width:100%
+      height:100%
+      top:0
+      cursor: pointer
+      .plus_sign
+        cursor: pointer
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 18px
+        height: 40px
+      span
+        position: absolute
+        text-align: center
+        display: block
+        width: 100%
+        top: 60%
+        font-size: .75rem
+        font-weight: 700
+     
+
+@media screen and (max-width: 340px)
+ .profile_change
+  .field
+    .calendar
+      width:33%
+      margin-right: 3px
+      select
+        background-position-x: 87%
+      span
+        padding-left: 5px

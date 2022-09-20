@@ -1,0 +1,230 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Source version $CODEBUILD_SOURCE_VERSION
+      - echo Source resolved version $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - IMAGE_REPO_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
+      - echo IMAGE_REPO_URI $IMAGE_REPO_URI
+      - echo IMAGE_REPO_NAME $IMAGE_REPO_NAME
+      - SOURCE_VERSION=${CODEBUILD_SOURCE_VERSION:?required!!}
+      - SOURCE_VERSION_FOR_TAG="${SOURCE_VERSION//\//-}"
+      - SOURCE_VERSION_FOR_TAG="${SOURCE_VERSION//\//-}"
+      - RESOLVED_SOURCE_VERSION=${CODEBUILD_RESOLVED_SOURCE_VERSION:?required!!}
+      - COMMIT_HASH=$(echo "$RESOLVED_SOURCE_VERSION" | cut -c 1-7)
+      #- IMAGE_TAG_3=$COMMIT_HASH
+      - DOCKER_BUILD_PROGRESS=${DOCKER_BUILD_PROGRESS:-auto}
+      #- IMAGE_TAG=${IMAGE_TAG:-latest}
+      - IMAGE_TAG=${IMAGE_TAG:?required!!}
+      - IMAGE_TAG="${IMAGE_TAG//<TASK_DEFINITION>/$(date '+%Y%m%d-%H%M%S')}"
+      - IMAGE_TAG="${IMAGE_TAG//<DATETIME>/$(date '+%Y%m%d-%H%M%S')}"
+      - IMAGE_TAG="${IMAGE_TAG//<SOURCE_VERSION>/${SOURCE_VERSION_FOR_TAG}}"
+      - IMAGE_TAG="${IMAGE_TAG//<COMMIT_HASH>/${COMMIT_HASH}}"
+      - if [[ ! $IMAGE_TAG =~ ^[a-z][a-z0-9_\-]*$  ]]; then echo "不正なIMAGE_TAG $IMAGE_TAG"; exit 11; fi
+      #- if [ -z "$IMAGE_TAG_2" ]; then IMAGE_TAG_2=$IMAGE_TAG; fi
+      #- if [ -z "$IMAGE_TAG_3" ]; then IMAGE_TAG_3=$IMAGE_TAG; fi
+      - echo IMAGE_TAG $IMAGE_TAG
+      - echo DOCKER_BUILD_PROGRESS $DOCKER_BUILD_PROGRESS
+      - declare -a -x SYS_NAMES=('shop' 'seller' 'admin' 'batch')
+      - |-
+        set -e
+        declare -A -x TASKDEF_NAME_MAP=(
+          ['shop']=$TASKDEF_NAME_SHOP
+          ['seller']=$TASKDEF_NAME_SELLER
+          ['admin']=$TASKDEF_NAME_ADMIN
+          ['batch']=$TASKDEF_NAME_BATCH
+        )
+        declare -A -x APPSPEC_YAML_MAP=(
+          ['shop']=$APPSPEC_YAML_SHOP
+          ['seller']=$APPSPEC_YAML_SELLER
+          ['admin']=$APPSPEC_YAML_ADMIN
+          ['batch']=$APPSPEC_YAML_BATCH
+        )
+        declare -A -x CODEDEPLOY_DGP_MAP=(
+          ['shop']=$CODEDEPLOY_DGP_SHOP
+          ['seller']=$CODEDEPLOY_DGP_SELLER
+          ['admin']=$CODEDEPLOY_DGP_ADMIN
+          ['batch']=$CODEDEPLOY_DGP_BATCH
+        )
+        declare -A -x CONTAINER_NAME_MAP=(
+          ['shop']=$CONTAINER_NAME_SHOP
+          ['seller']=$CONTAINER_NAME_SELLER
+          ['admin']=$CONTAINER_NAME_ADMIN
+          ['batch']=$CONTAINER_NAME_BATCH
+        )
+        declare -A -x APP_ENV_MAP=(
+          ['shop']=$APP_ENV_SHOP
+          ['seller']=$APP_ENV_SELLER
+          ['admin']=$APP_ENV_ADMIN
+          ['batch']=$APP_ENV_BATCH
+        )
+      - env
+      - pwd && ls
+      - mkdir -p ${CODEBUILD_SRC_DIR}/aws/output
+      - DST_DIR=${CODEBUILD_SRC_DIR}/aws/output
+      - |-
+        set -e
+        echo "SYS_NAMES"
+        for SYS_NAME in "${SYS_NAMES[@]}"
+        do
+          echo "$SYS_NAME"
+          mkdir -p "${DST_DIR}/${SYS_NAME}"
+        done
+      # ECR へのログイン
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $IMAGE_REPO_URI
+      # Docker Hub へのログイン
+      - echo Logging in to Docker Hub...
+      - echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+  build:
+    commands:
+      # Docker Build
+      - cd $CODEBUILD_SRC_DIR && pwd
+      - |-
+        set -e
+        if [ "$EXEC_BUILD" == true ]; then
+          echo Build started on "$(date)"
+          echo Building the Docker image...
+          for SYS_NAME in "${SYS_NAMES[@]}"
+          do
+            APP_ENV="${APP_ENV_MAP["$SYS_NAME"]}"
+            docker build \
+            --build-arg APP_ENV="${APP_ENV:?required!!}" \
+            --progress="${DOCKER_BUILD_PROGRESS}" \
+            -t "${IMAGE_REPO_NAME}:${SYS_NAME}-${IMAGE_TAG}" \
+            -f docker/Dockerfile . || exit 21
+            docker tag "${IMAGE_REPO_NAME}:${SYS_NAME}-${IMAGE_TAG}" "${IMAGE_REPO_URI}/${IMAGE_REPO_NAME}:${SYS_NAME}-${IMAGE_TAG}"
+          done
+        fi
+  post_build:
+    commands:
+      # Push Docker Image
+      - cd $CODEBUILD_SRC_DIR && pwd
+      - |-
+        #set -e
+        if [ "$EXEC_BUILD" == true ]; then
+          echo Build completed on "$(date)"
+          echo Pushing the Docker image...
+          for SYS_NAME in "${SYS_NAMES[@]}"
+          do
+            docker push "${IMAGE_REPO_URI}/${IMAGE_REPO_NAME}:${SYS_NAME}-${IMAGE_TAG}" || exit 1
+          done
+        fi
+      # Push Deployment
+      - cd ${CODEBUILD_SRC_DIR}/aws && pwd
+      - |-
+        #set -e
+        declare -A -x RESULT_MAP
+        for SYS_NAME in "${SYS_NAMES[@]}"
+        do
+          TASKDEF_NAME="${TASKDEF_NAME_MAP["$SYS_NAME"]}"
+          APPSPEC_YAML="${APPSPEC_YAML_MAP["$SYS_NAME"]}"
+          CONTAINER_NAME="${CONTAINER_NAME_MAP["$SYS_NAME"]}"
+          if [ "$EXEC_DEPLOY_PUSH" == true ]; then
+          # Get TaskDef
+          echo describe task def and create.
+          OLD_TASKDEF_RAW_JSON=$(
+            aws ecs describe-task-definition \
+            --task-definition "${TASKDEF_NAME}" \
+            --query taskDefinition \
+            --output json \
+            || exit 31
+          )
+          OLD_TASKDEF_JSON=$(
+            echo "$OLD_TASKDEF_RAW_JSON" | jq \
+            'del(.taskDefinitionArn, .status, .requiresAttributes, .compatibilities, .revision, .registeredAt, .registeredBy)'
+          )
+          NEW_TASKDEF_JSON=$(
+            echo "$OLD_TASKDEF_JSON" | jq \
+            --arg imageUri "${IMAGE_REPO_URI}/${IMAGE_REPO_NAME}:${SYS_NAME}-${IMAGE_TAG}" \
+            --arg containerName "${CONTAINER_NAME}" \
+            '(.containerDefinitions[] | select(.name == $containerName) | .image) |= $imageUri'
+          )
+          # Create TaskDef
+          echo Create TaskDef...
+          echo "${NEW_TASKDEF_JSON}" > "${DST_DIR}/${SYS_NAME}/taskdef.json" && echo 'taskdef.json' && cat "${DST_DIR}/${SYS_NAME}/taskdef.json"
+          # Register TaskDef
+          echo Register Task definition...
+          if [ "$OLD_TASKDEF_JSON" == "$NEW_TASKDEF_JSON" ]; then
+            echo 'Taskdef Not Changes.'
+            REGISTERED_TASKDEF_RAW_JSON=$OLD_TASKDEF_RAW_JSON
+          else
+            echo 'Taskdef Changes.'
+            REGISTERED_TASKDEF_RAW_JSON=$(
+              aws ecs register-task-definition \
+              --cli-input-json "file://${DST_DIR}/${SYS_NAME}/taskdef.json" \
+              --output json \
+              --query taskDefinition \
+              || exit 32
+            ) 
+          fi
+          NEW_TASKDEF_ARN=$(
+            echo "${REGISTERED_TASKDEF_RAW_JSON}" |\
+            jq -r '.taskDefinitionArn'
+          ) && echo "NEW_TASKDEF_ARN: ${NEW_TASKDEF_ARN}"
+          NEW_TASKDEF_REV=$(
+            echo "${REGISTERED_TASKDEF_RAW_JSON}" |\
+            jq -r '.revision'
+          ) && echo "NEW_TASKDEF_REV: ${NEW_TASKDEF_REV}"
+          NEW_IMAGE_URI=$(
+            echo "${REGISTERED_TASKDEF_RAW_JSON}" |\
+            jq -r '.containerDefinitions[0].image'
+          ) && echo "NEW_IMAGE_URI: ${NEW_IMAGE_URI}"
+          # Create AppSpec
+          echo Create AppSpec...
+          echo "${APPSPEC_YAML//<TASK_DEFINITION>/$NEW_TASKDEF_ARN}" > "${DST_DIR}/${SYS_NAME}/appspec.yml" && echo 'appspec.yml' && cat "${DST_DIR}/${SYS_NAME}/appspec.yml"
+          # Prepare s3 info
+          DEPLOY_S3_KEY="deploy-push/web/appspec-${SYS_NAME}-it-${IMAGE_TAG}-tdr-${NEW_TASKDEF_REV}.yml"
+          DEPLOY_S3_URI="s3://${DEPLOY_S3_BUCKET}/${DEPLOY_S3_KEY}"
+          echo DEPLOY_S3_URI "$DEPLOY_S3_URI"
+          # Upload AppSpec to s3
+          echo Upload ApoSpec...
+          echo "DEPLOY_S3_URI: ${DEPLOY_S3_URI}"
+          aws s3 cp \
+          --content-type 'text/yaml' \
+          "${DST_DIR}/${SYS_NAME}/appspec.yml" "$DEPLOY_S3_URI" \
+          || exit 33
+          echo "IMAGE_TAG: ${IMAGE_TAG}"
+          echo "DEPLOY_S3_KEY: ${DEPLOY_S3_KEY}"
+          echo "DEPLOY_S3_URI: ${DEPLOY_S3_URI}"
+          echo "NEW_TASKDEF_ARN: ${NEW_TASKDEF_ARN}"
+          echo "NEW_IMAGE_URI: ${NEW_IMAGE_URI}"
+          RESULT_MAP["${SYS_NAME}-deploy-s3-key"]="$DEPLOY_S3_KEY"
+          RESULT_MAP["${SYS_NAME}-deploy-s3-uri"]="$DEPLOY_S3_URI"
+          RESULT_MAP["${SYS_NAME}-new-td-arn"]="$NEW_TASKDEF_ARN"
+          RESULT_MAP["${SYS_NAME}-new-img-uri"]="$NEW_IMAGE_URI"
+          fi
+        done
+      # Start Deployment
+      - |-
+        #set -e
+        for SYS_NAME in "${SYS_NAMES[@]}"
+        do
+          CODEDEPLOY_DGP=${CODEDEPLOY_DGP_MAP["$SYS_NAME"]}
+          DEPLOY_S3_URI=${RESULT_MAP["${SYS_NAME}-deploy-s3-uri"]}
+          if [ "$EXEC_DEPLOY_START" == true ] && [ -n "$DEPLOY_S3_URI" ]; then
+            DEPLOY_S3_KEY=${RESULT_MAP["${SYS_NAME}-deploy-s3-key"]}
+            NEW_TASKDEF_ARN=${RESULT_MAP["${SYS_NAME}-new-td-arn"]}
+            NEW_IMAGE_URI=${RESULT_MAP["${SYS_NAME}-new-img-uri"]}
+            echo Create Deployment...
+            echo "CODEDEPLOY_APP: ${CODEDEPLOY_APP}"
+            echo "CODEDEPLOY_DGP: ${CODEDEPLOY_DGP}"
+            echo "IMAGE_TAG: ${IMAGE_TAG}"
+            echo "NEW_IMAGE_URI: ${NEW_IMAGE_URI}"
+            echo "DEPLOY_S3_KEY: ${DEPLOY_S3_KEY}"
+            aws deploy create-deployment \
+            --application-name "${CODEDEPLOY_APP}" \
+            --deployment-group-name "${CODEDEPLOY_DGP}" \
+            --description "deploy ecs blue/green, onceec web taskdef ${NEW_TASKDEF_ARN}, image ${NEW_IMAGE_URI} at $(date)" \
+            --s3-location bucket="${DEPLOY_S3_BUCKET}",key="${DEPLOY_S3_KEY}",bundleType=yaml \
+            || exit 34
+          fi
+        done
+artifacts:
+  files:
+    - '*/taskdef.json'
+    - '*/appspec.yml'
+  base-directory: aws/output
+
+

@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  workspace:
+    volumes:
+      - "applications-sync:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}"
+
+volumes:
+  applications-sync:
+    external:
+      name: "applications-docker-sync"

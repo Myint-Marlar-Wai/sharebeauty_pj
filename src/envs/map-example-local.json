@@ -1,0 +1,40 @@
+{
+    "local-development" : [
+        ".env.base",
+        ".env.local-development"
+    ],
+    "testing-local-development" : [
+        ".env.base",
+        ".env.local-development",
+        ".env.testing",
+        ".env.testing-local-development"
+    ],
+    "testing-local-shop-development" : [
+        ".env.base",
+        ".env.local-development",
+        ".env.testing",
+        ".env.testing-local-development",
+        ".env.testing-local-shop-development"
+    ],
+    "testing-local-seller-development" : [
+        ".env.base",
+        ".env.local-development",
+        ".env.testing",
+        ".env.testing-local-development",
+        ".env.testing-local-seller-development"
+    ],
+    "testing-local-admin-development" : [
+        ".env.base",
+        ".env.local-development",
+        ".env.testing",
+        ".env.testing-local-development",
+        ".env.testing-local-admin-development"
+    ],
+    "testing-local-batch-development" : [
+        ".env.base",
+        ".env.local-development",
+        ".env.testing",
+        ".env.testing-local-development",
+        ".env.testing-local-batch-development"
+    ]
+}

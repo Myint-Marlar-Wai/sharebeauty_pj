@@ -1,0 +1,82 @@
+{
+    "shop-production" : [
+        ".env.base",
+        ".env.shop-production"
+    ],
+    "seller-production" : [
+        ".env.base",
+        ".env.seller-production"
+    ],
+    "admin-production" : [
+        ".env.base",
+        ".env.admin-production"
+    ],
+    "batch-production" : [
+        ".env.base",
+        ".env.batch-production"
+    ],
+    "testing-shop-production" : [
+        ".env.base",
+        ".env.shop-production",
+        ".env.testing",
+        ".env.testing-shop-production"
+    ],
+    "testing-seller-production" : [
+        ".env.base",
+        ".env.seller-production",
+        ".env.testing",
+        ".env.testing-seller-production"
+    ],
+    "testing-admin-production" : [
+        ".env.base",
+        ".env.admin-production",
+        ".env.testing",
+        ".env.testing-admin-production"
+    ],
+    "testing-batch-production" : [
+        ".env.base",
+        ".env.batch-production",
+        ".env.testing",
+        ".env.testing-batch-production"
+    ],
+    "shop-development" : [
+        ".env.base",
+        ".env.shop-development"
+    ],
+    "seller-development" : [
+        ".env.base",
+        ".env.seller-development"
+    ],
+    "admin-development" : [
+        ".env.base",
+        ".env.admin-development"
+    ],
+    "batch-development" : [
+        ".env.base",
+        ".env.batch-development"
+    ],
+    "testing-shop-development" : [
+        ".env.base",
+        ".env.shop-development",
+        ".env.testing",
+        ".env.testing-shop-development"
+    ],
+    "testing-seller-development" : [
+        ".env.base",
+        ".env.seller-development",
+        ".env.testing",
+        ".env.testing-seller-development"
+    ],
+    "testing-admin-development" : [
+        ".env.base",
+        ".env.admin-development",
+        ".env.testing",
+        ".env.testing-admin-development"
+    ],
+    "testing-batch-development" : [
+        ".env.base",
+        ".env.batch-development",
+        ".env.testing",
+        ".env.testing-batch-development"
+    ]
+}

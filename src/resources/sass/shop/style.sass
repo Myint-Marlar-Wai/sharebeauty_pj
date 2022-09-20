@@ -1,0 +1,1360 @@
+@import ../common/common
+/* shop_header */
+.shoptop_header
+  position: fixed
+  width: 100%
+  right: 0
+  z-index: 2
+  max-width: 640px
+  left: 0
+  margin: 0 auto
+  z-index: 2
+.nav_tools
+  display: flex
+  justify-content: flex-end
+  margin-top: 0
+  margin-bottom: 0
+  margin-left: auto
+  margin-right: auto
+  width: 92%
+  padding-top: 7px
+  &__logout_btn
+    font-size: 1.5rem
+    padding-right: 10px
+    color: #000
+  &__cart_btn
+    font-size: 1.5rem
+    position: relative
+    color: #000
+  .count_no
+    position: absolute
+    border-radius: 50%
+    padding-top: 2px
+    width: 19px
+    height: 19px
+    background-color: #d25f6c
+    top: 34%
+    left: 56%
+    transform: translate(-50%,-50%)
+    color: #fff
+    font-size: .625rem
+    font-weight: 700
+    text-align: center
+
+.shoptop_content
+  .shoptop_subttl
+    font-weight: 500
+    padding-left: 18px
+    font-size: 1rem
+    padding-top: 18px
+    padding-bottom: 18px
+    box-shadow: 0px 3px 6px rgba(0,0,0,16%)
+    text-transform: uppercase
+    color: #000
+  &__mv
+    width: 100%
+    position: relative
+    .logo_txt
+      background-color: rgba(247, 247, 247, 84%)
+      padding-top: 25px
+      padding-bottom: 26px
+      text-align: center
+      font-size: 1.875rem
+      font-weight: 700
+      position: absolute
+      top: 53%
+      transform: translateY(-50%)
+      width: 100%
+      color: #000
+  &__concept
+    margin-bottom: 28px
+    &__txt
+      font-size: .875rem
+      padding-top: 21px
+      font-weight: 500
+      padding-left: 20px
+      line-height: 1.9
+      color: #000
+  &__product
+    &__list
+      margin-top: 22px
+      li
+        margin-bottom: 30px
+        &:last-child
+          margin-bottom: 0
+      &__img_blk
+        position: relative
+        &__category_name
+          position: absolute
+          font-weight: 700
+          font-size: .875rem
+          height: 60px
+          padding-top: 9px
+          padding-bottom: 9px
+          line-height: 1.5
+          padding-left: 19px
+          padding-right: 19px
+          background-color: rgba(68, 69, 71, 78%)
+          width: 100%
+          bottom: 0
+          color: #fff
+          left: 0
+          right: 0
+          span
+            position: absolute
+            top: 50%
+            -ms-transform: translateY(-50%)
+            transform: translateY(-50%)
+            display: -webkit-box
+            -webkit-line-clamp: 2
+            -webkit-box-orient: vertical
+            overflow-y: hidden
+            word-break: break-all
+      &__category
+        font-size: .75rem
+        font-weight: 700
+        color: #000
+        padding: 10px 15px 0 24px
+      &__txt_blk
+        font-size: .75rem
+        font-weight: 500
+        line-height: 1.5
+        padding: 10px 15px 0 24px
+        display: -webkit-box
+        -webkit-line-clamp: 3
+        -webkit-box-orient: vertical
+        -webkit-box-align: center
+        overflow-y: hidden
+        word-break: break-all
+      &__btn
+        padding-top: 12px
+        padding-bottom: 12px
+        margin-top: 30px
+        text-align: center
+        border: 1px solid rgba(112,112,112,45%)
+        line-height: 1.2
+        background-color: #fff
+        width: 95%
+        margin-left: auto
+        margin-right: auto
+        border-radius: 5px
+        cursor: pointer
+        @include btn01()
+        a
+          font-weight: 700
+          font-size: 1rem
+
+
+.title
+  @include title()
+  color: $color1
+.form
+  .field
+    @include inputfield
+    position: relative
+    .input_form
+      width: 50%
+
+.btn
+  @include btn01()
+  
+.btn01
+  padding-top: 11px
+  padding-bottom: 11px
+  border-radius: 5px
+  width: 100%
+  display: block
+  color: $color1
+  background: #fff
+  text-align: center
+  margin-right: auto
+  margin-left: auto
+  margin-top: 30px
+  border:1px solid $border-color
+  @include notofont()
+  font-weight: 700
+
+.g_btn
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid transparent
+  position: relative
+  background: #e8e8e8
+  color: #285ac8
+  padding-top: 10px
+  margin-top: 30px
+  padding-bottom: 10px
+  border-color: transparent
+
+.toggle_pwd
+  position: absolute
+  right: 10px
+  top: 50%
+  transform: translateY(-50%)
+  cursor: pointer
+
+.forgot_password
+  text-align: center
+  border-bottom: 1px solid $color1
+  padding-bottom: 20px
+  a
+    padding-top: 20px
+    padding-bottom: 5px
+    display: inline-block
+    color: #0000ff
+    border-bottom: 1px solid #0000ff
+
+/* shop_detail */
+.user_content,.no_content
+  max-width: 640px
+  margin: 0 auto
+  .inner
+    width: 95%
+.shop_detail
+  .product_sec
+    padding-bottom: 30px
+
+  .shop_thumbnail
+    padding-top: 7px
+    .shop_slider
+      z-index: 1
+      .slick-arrow
+        background: none
+        top: 54.5%
+        &::before
+          position: absolute
+          width: 30px
+          height: 30px
+          content: ''
+          top: 50%
+          left: 50%
+          transform: translate(-50%,-50%)
+      .slick-prev
+        left: 4.4%
+        &::before
+          background: url('../../images/ico_prev_arrow.png') no-repeat center/cover
+      .slick-next
+        right: 4.4%
+        &::before
+          background: url('../../images/ico_next_arrow.png') no-repeat center/cover
+    .slider_nav
+      margin-top: 8px
+      &__data
+        width: 58px
+        margin-right: 2px
+        cursor: pointer
+        border: 1px solid transparent
+        &:hover,&:active
+          border: 1px solid #60b0d4
+      .slick-current
+        border: 1px solid #60b0d4
+  .copy_txt
+    font-size: .875rem
+    line-height: 1.5
+    font-weight: 500
+    padding-top: 35px
+    letter-spacing: 1.3px
+  .product_txt
+    font-size: 1rem
+    line-height: 1.5
+    font-weight: 700
+    padding-top: 10px
+    padding-bottom: 15px
+    color: #000
+  .price_amt
+    font-size: .875rem
+    line-height: 1.5
+    font-weight: 700
+    padding-left: 5px
+    letter-spacing: 0
+    color: #000
+  .qty
+    padding-top: 7px
+    padding-bottom: 20px
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    label
+      font-size: .75rem
+      line-height: 1.5
+      font-weight: 500
+      color: $color1
+      padding-left: 5px
+      padding-right: 8px
+    .qty__dropdown_menu
+      &__btn
+        width: 100px
+        border-radius: 3px
+        border: 1px solid #b0b0b0
+        padding-top: 3px
+        padding-bottom: 3px
+        padding-left: 8px
+        padding-right: 3px
+        @include notofont()
+        font-size: .75rem
+        color: $color1
+        font-weight: 700
+        cursor: pointer
+        outline: none
+        appearance: none
+        background: url('../../images/ico_eject_solid.png') no-repeat top 50% right 8%/9px
+  .stylist_sec
+    background-color: #f4f4f4
+    padding-top: 20px
+    padding-bottom: 22px
+    .profile
+      display: flex
+      justify-content: flex-start
+      padding-left: 11px
+      line-height: 1.6
+      padding-bottom: 20px
+      &__img
+        width: 52px
+        height: 47px
+        object-fit: cover
+        border-radius: 50%
+      &__desc
+        padding-left: 10px
+  .profile__desc,.ttl,.text
+    font-size: .75rem
+    font-weight: 700
+    letter-spacing: 0
+  .ttl
+    padding-left: 6px
+    line-height: 1.4
+    padding-bottom: 17px
+  .text
+    line-height: 1.4
+    .shop_thumbnail
+      padding-top: 10px
+  .component_sec
+    padding-top: 20px
+    .title
+      font-size: .75rem
+      font-weight: 700
+      line-height: 1.4
+      padding-bottom: 10px
+    .cat_name
+      font-size: 1rem
+      font-weight: 700
+      line-height: 1.5
+      padding-bottom: 12px
+    .price_amt,.qty label
+      padding-left: 0
+  
+/* shop_user_button */
+.cart_btn
+  @include btn01()
+  font-size: .875rem
+  color: $color1
+  background-color: rgba(255, 255, 255,0.85 )
+  border: none
+  padding-top: 11px
+  padding-bottom: 11px
+  width: 100%
+  border-radius: 5px
+  border: 1px solid #b0b0b0
+//Shop BreadCrumbs
+.shop_breadcrumbs
+  display: flex
+  li
+    width: 25%
+    text-align: center
+    display: block
+    font-size: .75rem
+    font-weight: 700
+    line-height: 1.5
+    color: $color1
+    padding-top: 10px
+    padding-bottom: 10px
+    position: relative
+    border: 1px solid #b0b0b0
+    border-right: 0
+    background-color: #ffffff
+    padding-left: 15px
+    &:after
+     content: ''
+     position: absolute
+     display: inline-block
+     width: 55px
+     height: 55px
+     top: 50%
+     right: -28px
+     background-color: #fff
+     border-radius: 0 5px 0 50px
+     transform: translateY(-50%) scale(0.507) rotate(45deg)
+     z-index: 1
+     border-top: 1px solid #707070
+     border-right: 1px solid #707070
+    &.active
+     opacity: 1
+     background-color: #60b0d4
+     color: #fff
+     &::after
+       background-color: #60b0d4
+    &:last-child
+      border-right: 1px solid #707070
+      &::after
+       content: none
+
+/* shop_cart */
+.product_form
+  .shop_cart,.no_content
+   color: $color1
+  .shop_breadcrumbs,.cart_login,.breadcrumb
+    padding-left: 10px
+    padding-right: 10px
+  .flex
+    display: flex
+    justify-content: space-between
+    font-size: .875rem
+    line-height: 1.5
+    padding-bottom: 10px
+    font-weight: 500
+  .cart_product
+    display: flex
+    border-top: 1px solid rgba(191,192,192,53%)
+    padding-top: 9px
+    padding-bottom: 10px
+    justify-content: flex-start
+    padding-left: 10px
+    flex-wrap: wrap
+    padding-right: 10px
+    &__img
+      margin-top: 2px
+      width: 23.3%
+      img
+        max-width: 80px
+        box-shadow: 0 3px 6px rgba(0,0 ,0 ,0.16 )
+    &__data
+      width: 75%
+      padding-left: 10px
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+    &__content
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 74%
+      margin-left: auto
+      &__desc
+        font-size: .75rem
+        line-height: 1.5
+        font-weight: 500
+        display: -webkit-box
+        -webkit-line-clamp: 3
+        -webkit-box-orient: vertical
+        overflow-y: hidden
+        word-break: break-all
+        text-transform: uppercase
+      .quantity
+        display: flex
+        justify-content: flex-end
+        border-radius: 3px
+        line-height: 1.5
+        height: 25px
+        width:59%
+        input[type="number"]
+          -webkit-appearance: textfield
+          -moz-appearance: textfield
+          appearance: textfield
+          border: none
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button
+          -webkit-appearance: none
+        input[type=number],button
+          width: 45px
+          text-align: center
+          height: 25px
+          outline: none
+          border:1px solid rgba(112,112,112,45%)
+          color: $color1
+          margin-right: 10px
+          font-size: .8rem
+          font-weight: 500
+          cursor: pointer
+          background: none
+          border-radius: 3px
+          @include notofont()
+          &:last-child
+            margin-right: 0
+      .price
+        font-size: .8rem
+        line-height: 1.5
+        font-weight: 700
+        letter-spacing: 0
+        width: 41%
+    .delete_link
+      font-size: .625rem
+      line-height: 1.5
+      font-weight: 700
+      text-decoration: underline
+      padding-top: 9px
+      width:100%
+      align-self: flex-end
+      text-align: right
+  .sub_charges
+    border-top: 1px solid #b0b0b0
+    padding-top: 20px
+    padding-left: 20px
+    padding-right: 10px
+    padding-bottom: 7px
+    &__desc
+      font-weight: 500
+    &__amt
+      font-weight: 700
+      letter-spacing: 0
+  .sub_charges,.total_charges
+    border-top: 1px solid rgba(191,192,192,53%)
+    padding-left: 20px
+    padding-right: 10px
+  .total_charges
+    font-weight: 700
+    line-height: 1.5
+    padding-top: 10px
+    margin-bottom: 30px
+    border-bottom: 1px solid rgba(191,192,192,53%)
+    &__desc
+      font-size: 1.125rem
+    &__amt
+      font-size: 1.188rem
+  .cart_login
+    &__title
+      padding-top: 30px
+      padding-bottom: 7px
+    &__title,&__label
+      font-size: .75rem
+      line-height: 1.5
+      font-weight: 700
+    &__form
+      &__field
+        @include inputfield()
+        position: relative
+        width:95%
+        margin-left: auto
+        margin-right: auto
+        input[type=text],input[type=password]
+          border-radius: 3px
+
+    .cart_btn
+      margin-top: 8px
+
+/* shop_nodata_in_cart */
+.no_content
+  padding-top: 67px
+  .title
+    text-align: center
+    font-size: .75rem
+  .info_blk
+    text-align: center
+    font-weight: 700
+    line-height: 1.5
+    padding-top: 34px
+    &__txt
+      font-size: 1rem
+      padding-bottom: 10px
+    &__number
+      padding-bottom: 10px
+      font-size: .875rem
+    .back_link
+      font-size: .75rem
+      color: #1f58cb
+      padding-left: 20px
+
+/* enter_purchase_info */
+.purchase_info
+  color: $color1
+  .inner
+    width: 94.5%
+  .shop_breadcrumbs
+    margin-top: 74px
+  &__ttl , &__gp__ttl ,.ship_info_block__ttl
+    font-size: .75rem
+    font-weight: 700
+    text-align: center
+    padding-top: 20px
+    padding-bottom: 19px
+    letter-spacing: 0
+  &__gp
+    &__ttl,.ship_info_block__ttl
+      text-align: left
+      padding-top: 0
+      padding-bottom: 11px
+    &__form
+      padding-left: 10px
+      padding-right: 10px
+      &__gp
+        display: flex
+        justify-content: space-between
+        .ship_info_block
+          width: 48%
+          padding-left: 0
+      .ship_info_block
+        @include inputfield()
+        position: relative
+        .label
+          font-size: .75rem
+          letter-spacing: .5px
+          span
+            color: #fff
+            background-color: #d25f6c
+            border: 1px solid #d25f6c
+            border-radius: 3px
+            padding-left: 4px
+            padding-right: 4px
+            margin-left: 6px
+            display: inline-block
+            line-height: 1.2
+        .ship_info_block__dropdown
+          display: block
+          padding-top: 15px
+          padding-left: 10px
+          padding-bottom: 15px
+          padding-right: 10px
+          margin-top: 3px
+          border-radius: 5px
+          border: 1px solid $border-color
+          font-size: .75rem
+          outline: none
+          appearance: none
+          line-height: 1.5
+          width: 100%
+          letter-spacing: .6px
+          background-color: #fff
+          @include notofont()
+          color: $color1
+        ::placeholder
+          font-size: .75rem
+          @include notofont()
+          color: #b0b0b0
+          font-weight: 500
+          letter-spacing: .5px
+        &__dropdown
+          background: url('../../images/ico_dropdown.png')
+          background-position-x: 97%
+          background-position-y: 48%
+          background-repeat: no-repeat
+          font-weight: 700
+          cursor: pointer
+        &__ttl
+          padding-bottom: 14px
+          margin-top: 8px
+          margin-left: -10px
+        &__txt
+          font-size: .625rem
+          font-weight: 500
+          letter-spacing: .5px
+          padding-bottom: 2px
+        &__new
+          margin-left: -10px
+          margin-top: 20px
+          .ship_info_block
+            &:last-child
+              margin-bottom: 0
+      .checkbox
+        border: 1px solid $border-color
+        width: 100%
+        margin-top: 10px
+        padding-top: 11px
+        padding-left: 8px
+        padding-bottom: 10px
+        .custom_checkbox
+          display: none
+          position: absolute
+          left:0
+          &+label
+            cursor: pointer
+            position: relative
+            &::before
+              content:""
+              margin-right: 10px
+              display: inline-block
+              height: 25px
+              width: 25px
+              border-radius: 1px
+              background-color: #fff
+              border: 1px solid #d1d1d1
+              vertical-align: text-top
+          &:checked
+            &+label
+              &::before
+                background-color: $color1
+              &::after
+                content: ""
+                position: absolute
+                left: 8px
+                top: 12px
+                background: #fff
+                width: 2px
+                height: 2px
+                box-shadow: 2px 0 0 #fff,4px 0 0 #fff,4px -2px 0 #fff,4px -4px 0 #fff,4px -6px 0 #fff,4px -8px 0 #fff
+                transform: rotate(45deg)
+        span
+          vertical-align: middle
+          display: inline-block
+          font-size: .75rem
+          padding-top: 4px
+          font-weight: 700
+          width: 85%
+  .payment_blk.no_default
+    .no_default__ttl
+      padding-bottom: 6px
+    .no_default__label
+      padding-left: 8px
+    .accordion_blk.no_defaultacc
+      padding-top: 3px
+  .payment_blk
+    .accordion_blk
+      .accordion
+        border-radius: 8px
+        border: 1px solid rgba(112,112,112,45%)
+        margin-bottom: 10px
+        overflow: hidden
+        &:last-child
+          margin-bottom: 0
+        &__ttl
+          padding-top: 15px
+          padding-bottom: 15px
+          padding-left: 40px
+          padding-right: 10px
+          font-size: .75rem
+          font-weight: 500
+          line-height: 1.5
+          cursor: pointer
+          position: relative
+          letter-spacing: .2px
+          &::before
+            position: absolute
+            content: ''
+            width: 21px
+            height: 21px
+            border-radius: 50%
+            top: 50%
+            left: 2.5%
+            transform: translateY(-50%)
+            border: 1px solid #b0b0b0
+            box-sizing: border-box
+        .open
+          &::before
+            border: 7px solid $color1
+        &__body
+          background-color: #fafafa
+          padding-top: 10px
+          padding-bottom: 8px
+          border-top:1px solid rgba(112,112,112,45%)
+          padding-left: 10px
+          padding-right: 10px
+          border-left: 0
+          border-right: 0
+          border-bottom: 0
+          font-weight: 500
+          font-size: 0.75rem
+          letter-spacing: 0.5px
+          margin-bottom: 0
+          p
+            line-height: 1.4
+          &__img
+            width: 100%
+            margin: 0 auto
+            padding: 11px 0 19px
+            text-align: center
+            .amazon
+              max-width: 150px
+              margin-left: auto
+              margin-right: auto
+          .gmo_sec
+            padding: 15px 0
+          .commision
+            line-height: 1.45
+            span
+              color: #e39160
+            a
+              color: #4db1d5
+              text-decoration: underline
+          .amazon_txt
+            padding: 1px 6px 20px
+            letter-spacing: .93px
+          .credit_cards
+            display: flex
+            align-items: center
+            li
+              width: 32px
+              margin-right: 4px
+              a
+                width: 100%
+                display: block
+                img
+                  max-width: 32px
+          .warning_list
+            padding-top: 5px
+            padding-bottom: 10px
+            letter-spacing: .1px
+            font-size: .5rem
+            line-height: 1.4
+            font-weight: 500
+          .ship_info_block
+            padding-left: 0
+          .num_payments
+            margin-top: -11px
+          .duration
+            display: flex
+            &__month
+              margin-right: 10px
+              select
+                text-align: center
+            li
+              display: flex
+              align-items: center
+              select
+                width: 80px
+                background: url('../../images/ico_dropdown.png')
+                background-position-x: 83%
+                background-position-y: 51%
+                background-repeat: no-repeat
+                background-color: #fff
+                margin-top: 0
+                text-align: center
+                padding-right: 28px
+              .label
+                padding-left: 9px
+                padding-top: 0
+                padding-bottom: 0
+  .remark_block
+    .label
+      margin-left: -10px
+      span
+        background-color: #444547
+        border: 1px solid #444547
+    textarea
+      width: 100%
+      border: 1px solid #d7d7d7
+      resize: none
+      height: 80px
+      border-radius: 3px
+      font-size: 1rem
+      padding: 10px
+      @include notofont()
+      outline: none
+  .payment_info
+    margin-top: 9px
+    margin-bottom: 29px
+    &__ttl
+      font-size: .75rem
+      font-weight: 500
+      letter-spacing: .5px
+      span
+        background-color: #444547
+        border: 1px solid #444547
+        color: #fff
+        border-radius: 3px
+        padding-left: 4px
+        padding-right: 4px
+        margin-left: 3px
+    &__gp
+      border: 1px solid $border-color
+      border-radius: 3px
+      margin-top: 13px
+      margin-left: 10px
+      background-color: rgba(240,240,240,45%)
+      &__txt
+        font-size: .625rem
+        font-weight: 500
+        padding-top: 6px
+        padding-left: 12px
+        letter-spacing: .6px
+      .checkbox
+        border: none
+        padding-right: 8px
+        margin-top: 0
+        padding-top: 18px
+        .ship_info_block
+          padding-left: 0
+          padding-bottom: 8px
+          padding-top: 11px
+
+/*confirm_purchase_info */
+.confirm_info
+  padding-top: 27px
+  padding-bottom: 152px
+  color: #444547
+  .sale_ttl
+    padding-top: 20px
+    padding-bottom: 13px
+    letter-spacing: .2px
+  &__content
+    &__form
+      .sub_charges
+        padding-top: 5px
+        padding-right: 10px
+        padding-bottom: 5px
+        padding-left: 20px
+        letter-spacing: 0
+        line-height: 2
+        p
+          font-size: .875rem
+          font-weight: 700
+        .order_name
+          display: -webkit-box
+          -webkit-line-clamp: 1
+          -webkit-box-orient: vertical
+          word-break: break-all
+          overflow: hidden
+          margin-bottom: 3px
+        .sub_charges__desc
+            font-weight: 500
+      .total_charges
+        border-top: 0
+        padding-top: 0
+        .total_charges__desc
+          font-weight: 700
+      .confirm_txt
+        p
+          display: flex
+          font-size: .5rem
+          padding-left: 20px
+          padding-right: 20px
+          font-weight: 500
+      .confirm_list
+        padding-bottom: 10px
+        padding-left: 19px
+        padding-right: 19px
+        line-height: 1.5
+        letter-spacing: .5px
+        .label
+          color: rgba(112,112,112,45%)
+          font-size: .75rem
+          font-weight: 500
+        .confirm_result
+          font-size: .875rem
+          font-weight: 700
+          .dotted
+            display: inline-block
+            text-indent: -5px
+          span
+            font-size: .75rem
+            &__txt
+              font-weight: 500
+      .payment_info
+        margin-top: 8px
+        margin-bottom: 12px
+        margin-left: -10px
+        .confirm_list
+          padding-bottom: 16px
+          &:last-child
+            padding-bottom: 0
+          .label
+            color: #444547
+            font-weight: 700
+          .confirm_result
+            padding-top: 9px
+            padding-left: 13px
+      //button 
+      //  @include btn01()
+      //  width: 95%
+      //  background-color: #fff
+      //  border: 1px solid #d1d1d1
+      //  border-radius: 5px
+      //  font-size: .875rem
+      //  font-weight: 700
+      //  padding-top: 10px 
+      //  padding-bottom: 10px
+      //  margin: 0 auto 14px
+      //  display: block
+      //  color: #444547
+    &__ttl
+      font-size: .75rem
+      font-weight: 700
+      padding-top: 18px
+      padding-bottom: 11px
+      padding-left: 10px
+      letter-spacing: 0
+    &__order_detail
+      margin-top: -2px
+      .title
+        padding-bottom: 12px
+      .cart_product
+        padding-bottom: 12px
+        &__data
+          font-size: .75rem
+          font-weight: 500
+          letter-spacing: 1px
+          .product_label
+            display: -webkit-box
+            -webkit-line-clamp: 3
+            -webkit-box-orient: vertical
+            word-break: break-all
+            overflow: hidden
+            text-transform: uppercase
+          &__price 
+            display: flex
+            justify-content: space-between
+            align-items: center
+            .price
+              font-weight: 700
+              font-size: .875rem
+            .quantity
+              font-size: .75rem
+              font-weight: 500
+      .sub_charges
+        padding-top: 20px
+        padding-right: 10px
+        padding-bottom: 5px
+        padding-left: 20px
+      .total_charges
+        border-top: 1px solid #b0b0b0
+        padding-top: 10px
+        .total_charges__desc
+          font-weight: 700
+
+/* member_info,shipping_info */
+.member_info,.shipping_info
+  .toggle_pwd
+    font-size: 1rem
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+    padding-left: 30px
+    padding-right: 8px
+    letter-spacing: 1.2px
+    span
+      display: inline-block
+      text-indent: -9px
+  &__form
+    &__group
+      &__flex
+        display: flex
+        justify-content: space-between
+    .field
+      textarea
+        resize: none
+        height: 80px
+        @include notofont()
+        font-size: 1rem
+        font-weight: 700
+        color: rgba(112,112,112,45%)
+        padding-left: 10px
+        padding-right: 10px
+        border: 1px solid #d1d1d1
+        border-radius: 3px
+        padding-top: 9px
+        &:focus
+          outline: none
+      .label 
+        margin-left: -5px
+        span
+          background: #d25f6c
+          color: #fff
+          padding: 0 4px 1px
+          margin-left: 5px
+          border-radius: 3px
+        .any 
+          background: $color1
+          border-radius:3px
+    .profile_upload
+      width:100px
+      height:100px
+      border:1px solid rgba(112,112,112,45%)
+      border-radius: 50%
+      background: rgba(240,240,240,45%)
+      margin-top: 8px
+      margin-left: auto
+      margin-right: auto
+      position: relative
+      img
+        border-radius: 50%
+    .upload_button
+      display: block
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      padding-top: 31px
+      width: 62px
+      cursor: pointer
+      font-size: .5rem
+      font-weight: 700
+      &::before
+        position: absolute
+        content: "+"
+        font-size: 2rem
+        font-weight: 700
+        top: -5px
+        left: 50%
+        transform: translateX(-50%)
+.member_info,.shipping_info
+  &__form
+    .field 
+      padding-left: 5px
+    &__group
+      &__flex
+        padding-left: 7px
+        padding-right: 10px
+        &__gp
+          width: 47%
+          display: flex
+          flex-direction: column
+          row-gap: 15px
+        .name_gp
+          .label
+            margin-left: 0
+          input[type=text]
+            text-align: left
+    &__member
+      .label
+        padding-bottom: 0
+  &__address,&__logout,&__member
+    margin-top: 52px
+    h3
+      font-size: .75rem
+      font-weight: 700  
+      padding-bottom: 9px     
+    a,button
+      border: none
+      outline: none
+      cursor: pointer
+      background-color: #fff
+      font-size: .75rem
+      font-weight: 700
+      color: #1f58cb
+      line-height: 1.8
+      letter-spacing: 0.3px
+      padding-left: 13px
+      padding-right: 13px
+  .address
+    position: relative
+    display: -webkit-box
+    -webkit-line-clamp: 1
+    -webkit-box-orient: vertical
+    overflow-y: hidden
+    word-break: break-all
+    margin-bottom: 5px
+    cursor: pointer
+    &::after
+      content:">"
+      position: absolute
+      color: #1f58cb
+      font-weight: 700
+      right:8px
+      top:0
+
+/* contact_form */
+.contact_form
+  padding-bottom: 152px
+  .shop_ttl
+    padding-top: 15px
+  &__txt
+    margin-bottom: 15px
+    font-size: .75rem
+    font-weight: 500
+    display: flex
+  .contact_form__form
+    &__field
+      .label
+        span
+          background: #d25f6c
+          color: #fff
+          padding: 0 4px 1px
+          margin-left: 5px 
+          border-radius: 3px
+      &__dropdown
+        background: url('../../images/ico_dropdown.png')
+        background-position-x: 97%
+        background-position-y: 48%
+        background-repeat: no-repeat
+        font-weight: 700
+        cursor: pointer
+        display: block
+        padding-left: 10px
+        padding-right: 10px
+        padding-top: 15px
+        padding-bottom: 15px
+        border-radius: 8px
+        border: 1px solid $border-color
+        font-size: .75rem
+        outline: none
+        appearance: none
+        line-height: 1.5
+        width: 100%
+        background-color: #fff
+        @include notofont()
+        color: $color1
+      option
+        color: #444547
+        font-weight: 700
+        @include notofont()
+      textarea
+        height: 80px
+        padding-top: 5px
+        padding-bottom: 5px
+        padding-left: 10px
+        padding-right: 10px
+        border-radius: 8px
+        resize: none
+        border: 1px solid $border-color
+        outline: none
+        @include notofont()
+        font-size: 1rem
+        &::placeholder
+         color: $border-color
+         font-weight: 700
+         @include notofont()
+    &__submit
+      width: 100%
+
+/* contact_form_complete */
+.contact_form_complete
+  .shop_ttl
+    padding-top: 15px
+  &__txt
+    color: $color1
+    font-size: .75rem
+    font-weight: 500
+    
+/* special_product */
+.special_product
+  .shop_ttl
+    padding-top: 15px
+    padding-bottom: 15px
+  &__txt
+    color: $color1
+    font-size: .75rem
+    font-weight: 500
+    padding-bottom: 30px
+    &:last-child
+      padding-bottom: 0
+    &__ttl
+      font-weight: 700
+      display: flex
+      padding-bottom: 10px
+    .sub_ttl
+      display: block
+    &__subtxt
+      padding-bottom: 10px
+    .txt
+        padding-top: 10px
+        display: block
+        padding-bottom: 10px
+    p
+      display: flex
+      span
+        padding-left: 3px
+/* profile */
+.profile_info
+  &__profile
+    display: flex
+    flex-direction: column
+    padding-top: 10px
+    &__ttl
+      font-size: .75rem
+      font-weight: 700
+      margin-bottom: 21px
+      text-align: center
+    &__img
+      margin-bottom: 20px
+      margin-left: auto
+      margin-right: auto
+      img
+        width:335px
+        object-fit: cover
+        border-radius: 3px
+    &__name
+      display: flex
+      flex-direction: column
+      margin-left: 18px
+      &__ttl
+        font-size: .875rem
+        font-weight: 700
+        margin-bottom: 10px
+      &__user
+        font-size: .75rem
+        font-weight: 500
+  &__content
+      margin-top: 23px
+      margin-bottom: 17px
+      margin-left: 17px
+      margin-right: 17px
+      &__comment
+        font-size: .875rem
+        font-weight: 700
+        padding-left: 20px
+        margin-bottom: 17px
+        position: relative
+        span
+          &::before
+            position: absolute
+            content: ""
+            background: url('../../images/ico_heart.png') no-repeat top center/contain
+            top: 50%
+            transform: translateY(-50%)
+            left: 0
+            width: 17px
+            height: 14px
+      &__desc
+        .ttl,.text
+          font-size: .75rem
+          font-weight: 500
+          color:#000
+        .ttl
+          text-indent: 8px
+        .text
+          padding-bottom: 12px
+          color:#000
+  .profile_btn
+    @include btn01()
+    font-size: .875rem
+    color: $color1
+    background-color: rgba(255, 255, 255,0.85 )
+    border: none
+    padding-top: 11px
+    padding-bottom: 11px
+    width: 100%
+    border-radius: 5px
+    border: 1px solid #b0b0b0
+    margin-bottom: 50px
+    text-align: center
+    cursor: pointer
+    font-weight: 700
+
+/*shoplogin*/
+.shoplogin
+  .sale_ttl
+    padding-top:15px
+    padding-bottom: 15px
+
+/* terms_of_service */
+.terms_of_service
+  &__txt
+    font-size: .625rem
+    font-weight: 500
+    font-feature-settings: "palt"
+    padding-bottom: 20px
+    h4
+      color: $ttlcolor
+      font-weight: 500
+
+@media screen and (max-width: $breakpoint-mobile)
+  .shoptop_content
+    .inner
+      width: 100%
+  .shoptop_footer
+    .law,.company
+      width: 100%
+@media screen and (max-width: 374.9px)
+  .shop_detail
+    .shop_thumbnail
+      .slider_nav
+          &__data
+            width: 49px
+
+@media screen and (max-width: 340px)
+  .member_info
+    .field
+      .calendar
+        width:33%
+        margin-right: 3px
+        select
+          background-position-x: 87%
+        span
+          padding-left: 5px

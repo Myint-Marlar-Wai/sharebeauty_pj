@@ -1,0 +1,31 @@
+{
+    "private": true,
+    "scripts": {
+        "hello": "echo hello",
+        "whoami": "whoami",
+        "watch": "cross-env APP_SYSTEM=${npm_config_appsystem} mix watch",
+        "watch-poll": "cross-env APP_SYSTEM=${npm_config_appsystem} mix watch -- --watch-options-poll=1000",
+        "hot": "cross-env APP_SYSTEM=${npm_config_appsystem} mix watch --hot",
+        "dev": "npm run development",
+        "development": "cross-env APP_SYSTEM=${npm_config_appsystem} mix",
+        "prod": "npm run production",
+        "production": "cross-env APP_SYSTEM=${npm_config_appsystem} mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.21",
+        "clean-webpack-plugin": "^4.0.0",
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.0.1",
+        "jquery": "^3.6.0",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "mix-env-file": "^0.1.1",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.53.0",
+        "sass-loader": "^12.6.0"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}

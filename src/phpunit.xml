@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Common">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+        <testsuite name="Common-Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Common-Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+
+        <!-- Shop -->
+        <testsuite name="Shop">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Shop</directory>
+        </testsuite>
+        <testsuite name="Shop-Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Systems/Shop/Unit</directory>
+        </testsuite>
+        <testsuite name="Shop-Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Shop/Feature</directory>
+        </testsuite>
+        <testsuite name="Shop-Only">
+            <directory suffix="Test.php">./tests/Systems/Shop</directory>
+        </testsuite>
+
+        <!-- Seller -->
+        <testsuite name="Seller">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Seller</directory>
+        </testsuite>
+        <testsuite name="Seller-Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Systems/Seller/Unit</directory>
+        </testsuite>
+        <testsuite name="Seller-Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Seller/Feature</directory>
+        </testsuite>
+        <testsuite name="Seller-Only">
+            <directory suffix="Test.php">./tests/Systems/Seller</directory>
+        </testsuite>
+
+        <!-- Admin -->
+        <testsuite name="Admin">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Admin</directory>
+        </testsuite>
+        <testsuite name="Admin-Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Systems/Admin/Unit</directory>
+        </testsuite>
+        <testsuite name="Admin-Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Admin/Feature</directory>
+        </testsuite>
+        <testsuite name="Admin-Only">
+            <directory suffix="Test.php">./tests/Systems/Admin</directory>
+        </testsuite>
+
+        <!-- Batch -->
+        <testsuite name="Batch">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Batch</directory>
+        </testsuite>
+        <testsuite name="Batch-Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Systems/Batch/Unit</directory>
+        </testsuite>
+        <testsuite name="Batch-Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Systems/Batch/Feature</directory>
+        </testsuite>
+        <testsuite name="Batch-Only">
+            <directory suffix="Test.php">./tests/Systems/Batch</directory>
+        </testsuite>
+
+    </testsuites>
+
+    <extensions>
+        <extension class="Tests\Extension"/>
+    </extensions>
+
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+    </coverage>
+    <php>
+        <!--<server name="APP_ENV" value="testing"/>-->
+        <server name="BCRYPT_ROUNDS" value="4"/>
+        <server name="CACHE_DRIVER" value="array"/>
+        <!-- <server name="DB_CONNECTION" value="sqlite"/> -->
+        <!-- <server name="DB_DATABASE" value=":memory:"/> -->
+        <server name="MAIL_MAILER" value="array"/>
+        <server name="QUEUE_CONNECTION" value="sync"/>
+        <server name="SESSION_DRIVER" value="array"/>
+        <server name="TELESCOPE_ENABLED" value="false"/>
+    </php>
+</phpunit>

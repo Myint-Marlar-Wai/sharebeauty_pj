@@ -1,0 +1,1379 @@
+@import ../common/common
+/* shop_list_initial,product_list_initial */
+.shop_introduce,.product_initial
+    margin-top: 10px
+    padding-bottom: 100px
+    .sub_ttl
+      padding-bottom: 5px
+    .image
+      img
+       max-width: 131px
+       box-shadow: 0px 3px 6px rgba(0,0,0,16%)
+    &__content
+      background: url('../../images/img_shop_bg.png') no-repeat center/100% 100%
+      width: 100%
+      height: 285px
+      margin:0 auto
+      margin-top: 20px
+      position: relative
+      padding-top: 20px
+      padding-left: 10px
+      padding-right: 10px
+      padding-bottom: 20px
+      &__txt
+        font-weight: 500
+        font-size: .563rem
+      &__flex
+        display: flex
+        font-weight: 500
+        font-size: .563rem
+        padding-top: 20px
+        justify-content: space-between
+        width: 100%
+        align-items: center
+        &__imggp
+          width: 100%
+        &__txtgp
+          width: 100%
+    .shop_btn-group
+      margin-top: 30px
+//        border: 1px solid #707070
+//        border-radius: 3px
+//        padding-left: 20px
+//        padding-right: 20px
+//        padding-top: 67px
+//        padding-bottom: 206px
+//        margin-bottom: 20px
+//        margin-top: 8px
+//        &__txt2
+//            padding-top: 20px
+//        p
+//            font-weight: 700
+//            font-size: .875em
+///* product_initial */
+//.product_initial
+//  .inner
+//    padding-top: 15px
+
+/* shopitem_list */
+.shopitem_detail
+    margin-bottom: 22px
+    &__main_visual
+        max-width: 375px
+        width: 100%
+        margin-top: 0
+        margin-bottom: 0
+        margin-left: auto
+        margin-right: auto
+    &__shop_nav
+        &__name_list
+            padding-bottom: 8px
+            padding-top: 7px
+            padding-left:8px
+            display: flex
+            align-items: center
+            border-bottom: 1px solid #707070
+            &__img_blk
+                width: 20px
+                height:20px
+                i
+                  font-size: 1.25rem
+            &__name
+               font-size: 1rem
+               font-weight: 700
+               color: $color1
+               text-transform: uppercase
+               padding-left:7px
+               width: 94%
+               display: -webkit-box
+               -webkit-line-clamp: 1
+               -webkit-box-orient: vertical
+               overflow-y: hidden
+               word-break: break-all
+
+    &__customer_share
+        &:nth-child(2n+0)
+         margin-top: -5px
+        &__ttl
+            font-size: .75rem
+            font-weight: 700
+            text-align: center
+            padding-top: 10px
+            padding-bottom: 10px
+        &__list
+            display: flex
+            justify-content: space-between
+            align-items: center
+            flex-wrap: wrap
+            width:95%
+            margin-top: 0
+            margin-bottom: 0
+            margin-left: auto
+            margin-right: auto
+        li
+            border: 1px solid #bebebe
+            border-radius: 10px
+            width: 31.2%
+            margin-bottom: 8px
+            &:last-child
+              margin-left: 0
+
+        a,button
+            text-align: center
+            flex-direction: column
+            align-items: center
+            display: flex
+            padding-top: 22px
+            padding-bottom: 4px
+            font-size: .75rem
+            line-height: 2
+            font-weight: 700
+            background: transparent
+            border: none
+            color: $color1
+            width: 100%
+        .ico
+              font-size: 1.988rem
+
+/* shop_btn */
+.shop_btn
+    padding-top: 7.5px
+    padding-bottom: 7.5px
+    border-radius: 30px
+    display: flex
+    align-items: flex-start
+    width: 100%
+    justify-content: center
+    text-align: center
+    margin-right: auto
+    margin-left: auto
+    font-size: 1.125rem
+    font-weight: 700
+    border:1px solid rgba(112,112,112,45%)
+    margin-top: 30px
+    background: #fff
+    @include notofont()
+    span 
+        display: inline-block
+        width: 75%
+        color: $color1
+    i
+        padding-top: 6px
+        padding-left: 3%
+        width: 3%
+
+
+/* shop_content */
+.shop_content
+  max-width: 1024px
+  .shop_ttl
+    padding-top: 14px
+    padding-bottom: 14px
+    padding-left: 23px
+    background-color: #696969
+    color: #fff
+    font-size: .75rem
+    font-weight: 700
+    position: relative
+    text-align: left
+    i
+      padding-right: 20px
+
+/* publishing_settings */
+.publishing-settings
+  font-weight: 700  
+  padding-left: 5px
+  padding-right: 5px
+  .title
+    @include title()
+    text-align: center
+    font-size: .75rem
+    padding-top: 15px
+    padding-bottom: 13px
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+  &__alert
+    padding-top: 12px
+    padding-bottom: 19px
+    li
+      line-height: 1.2
+      font-size: .75rem
+      font-weight: 700
+      span
+        color: $color1
+        width:50%
+        display: inline-block
+        margin-bottom: 10px
+      .register
+       color: $altmsg
+      .unregister
+        a
+          color:#1f58cb
+          padding-right: 10px
+          &:last-child
+            padding-right: 0
+  &__sub_ttl
+     font-size: .75rem
+     padding-top: 11px
+     margin-left: -9px
+  &__btn__list
+    padding-top: 10px
+    padding-bottom: 50px
+    li     
+      display: flex
+      justify-content: space-between
+      margin-bottom: 22px
+
+/* action_btn */
+.action_btn
+  padding-top: 19px
+  padding-bottom: 6px
+  text-align: center
+  border: 1px solid #bebebe
+  line-height: 1.2
+  background-color: #fff
+  width: 30%
+  border-radius: 10px
+  display: flex
+  flex-direction: column
+  align-items: center
+  color:$color1
+  @include btn01()
+  i
+    font-size: 1.7rem
+    padding-bottom: 10px
+  &:hover
+    background-color:#60b0d4
+    color: #fff
+    border: 1px solid #60b0d4
+  &:active
+     background-color:#60b0d4
+     border: 1px solid #60b0d4
+     color: #fff
+.open_btn
+    background-color: #bebebe
+.shop_salsh
+    background-color: #bebebe
+.toogleclass
+    background-color:#60b0d4
+    border: 1px solid #60b0d4
+    color: #fff
+.action_desc
+  width: 65%
+  line-height: 1.3
+  padding-top: 4px
+  font-size: .75rem
+  font-weight: 500
+
+/* modal box */
+.alert_modal
+  display: none
+  position: fixed
+  background-color: rgba(68, 69, 71, 85%)
+  top: 0%
+  left: 0%
+  width: 100%
+  height: 100%
+  z-index: 9999
+  &__popup
+    width: 200px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    background-color: #fff
+    border-radius: 10px
+    padding-top: 20px
+    padding-bottom: 20px
+    table
+      margin-left: auto
+      margin-right: auto
+  &__form
+    width: 350px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    background-color: #fff
+    border-radius: 10px
+    padding-bottom: 40px
+    padding-top: 20px
+    &__close
+      position: absolute
+      top: -5%
+      right: -5%
+      width: 33px
+      height: 33px
+      border-radius: 50%
+      background-color: #fff
+      text-align: center    
+      i
+        color: #d25f6c
+        font-size: 1.563rem
+        vertical-align: middle
+        padding-top: 10%
+        padding-left: 10%
+        padding-bottom: 10%
+        padding-right: 10%
+      &:hover
+        opacity: 1
+    &__ttl
+      text-align: center
+      @include title()
+      font-size: 1rem
+      padding-top: 20px
+    &__txt
+      padding-bottom: 20px
+      line-height: 1.5
+      font-size: 0.75rem
+      padding-left: 20px
+      font-weight: 500
+      padding-right: 20px
+    &__buttons
+      display: flex
+      justify-content: space-between
+      width: 65%
+      margin-right: auto
+      margin-left: auto
+    .btn
+      width: 45%
+      border: 1px solid #bebebe
+      border-radius: 10px
+      line-height: 1.5
+      padding-top: 25px
+      padding-bottom: 10px
+      display: flex
+      align-items: center
+      flex-direction: column
+      font-size: .75rem
+      background-color: #fff
+      @include btn01()
+      i
+        font-size: 1.7rem
+        padding-bottom: 7px
+        color: $color1
+      &:hover,&:active
+        background-color: #e8e8e8
+    .active
+      background-color: #e8e8e8
+  
+.alert_cancel_btn
+  background-color: #e8e8e8
+
+.alert_action_btn
+  background-color: #e8e8e8
+
+/* shop_create */
+.shop_create,.shop_change
+  &__txt
+    font-size: .75rem
+    font-weight: 500
+    text-transform: uppercase
+    padding-bottom: 20px
+    letter-spacing: 0.2px
+  &__ttl
+    @include title()
+    font-size: .75rem
+    display: flex
+    align-items: center
+    padding-top: 0
+    padding-bottom: 9px
+    margin-left: -3px
+    span
+      color:#fff
+      background-color: #d25f6c
+      border: 1px solid #d25f6c
+      border-radius: 3px
+      padding: 0px 4px
+      display: inline-block
+      margin-left: 5px
+  &__form
+    &__flex
+      &__field
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        margin-top: -3px
+        a 
+          width: 55%
+          font-size: .75rem
+          letter-spacing: 0.2px
+          font-weight: 500
+      &__area
+        outline: none
+        padding-top: 10px
+        padding-bottom: 10px
+        padding-left: 10px
+        padding-right: 10px
+        height: 60px
+        resize: none
+        border: 1px solid $border-color
+        font-size: .875rem
+        text-align: left
+        line-height: 1.3
+        width:100%
+        border-radius: 8px
+        @include notofont
+
+    &__btn
+      @include btn01
+      width: 100%
+      display: block
+      margin-top: 32px
+      color: $color1
+      padding-top: 11px
+      padding-bottom: 11px
+      border-radius: 5px
+      border: 1px solid rgba(112,112,112,45%)
+      line-height: 1.5
+      background: #fff
+    .field
+      @include inputfield()
+      margin-bottom: 30px
+      &::placeholder
+        font-weight: 700
+        font-size: 1rem
+        @include notofont()
+        color: rgba(112,112,112,45%)
+     
+    .btn
+      padding-top: 5px
+      padding-bottom: 5px
+      border-radius: 5px
+      background-color: #e8e8e8
+      border: 2px solid transparent
+      line-height: 1.5
+      width: 65%
+      padding-left: 0
+      padding-right: 0
+      @include btn01()
+      color: $color1
+      margin-left: 12px
+    .label
+      display: flex
+      align-items: center
+      font-weight: 700
+      font-size: .75rem
+      margin-left: -3px
+      padding-left: 5px
+    .link
+      font-weight: 500
+      font-size: .624rem
+      width: 65%
+      text-align: right
+      margin-right: 1%
+    .custom_upload
+      height: 122px
+      overflow: hidden
+      position: relative
+      width:255px
+      margin-top: 8px
+      background-color: #f8f8f8
+    .custom_upload2
+      height: 250px
+      .show
+        opacity: 1
+    .upload_button
+      display: block
+      width:100%
+      height: 100%
+      position: absolute
+      top:0
+      cursor: pointer
+      .plus_sign
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        cursor: pointer
+      img 
+        width: 20px
+        height: 42px
+        display: block
+      span
+        color: #444547
+        font-size: .688rem
+        font-weight: 700
+        position: absolute
+        top:60%
+        left: 50%
+        transform: translateX(-50%)
+    .image_remove_btn
+        z-index: 999
+        position: absolute
+        right: 0
+        border: none
+        font-size: 1.25rem
+        width:27px
+        height:27px
+        padding-bottom: 3px
+        border-radius: 50%
+        right:5px
+        top: 5px
+        color: #fff
+        cursor: pointer
+        &:hover
+          opacity: 0.7
+
+/* shop_info_change */
+.shop_change
+  .shop_name_result
+    line-height: 2
+    font-weight: 700
+    padding-left: 20px
+    font-size: 1.6rem
+
+/* order_list */
+.order_list
+  margin-bottom: 100px
+  &__search_blk
+    padding-top: 13px
+    padding-bottom: 9px
+    justify-content: center
+    width: 99.5%
+    margin-top: 0
+    margin-bottom: 0
+    margin-left: auto
+    margin-right: auto
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16)
+    .inner
+      padding-left: 10px
+    .order_list_flex
+      display: flex
+      flex-direction: column
+      row-gap: 10px
+    &__period
+      display: flex
+      align-items: center
+      justify-content: space-between
+      padding-bottom: 4px
+      &__datepicker
+        border: 1px solid rgba(112, 112, 112, .45)
+        margin-left: 1%
+        margin-right: 1%
+        border-radius: 3px
+        padding-top: 7px
+        padding-bottom: 7px
+        width: 33%
+        color: #808080
+        font-size: .75rem
+        text-align: center
+        outline: none
+        cursor: pointer
+        @include notofont()
+      &__search_icon
+        padding-top: 8px
+        padding-right: 16px
+        padding-bottom: 7px
+        padding-left: 14px
+        border-radius: 3px
+        background-color: #e8e8e8
+        border: none
+        color: #444547
+        width: 15%
+        cursor: pointer
+    &__txt
+      font-weight: 700
+      color: #444547
+      width: 18%
+      font-size: 1rem
+    &__amount
+      display: flex
+      align-items: center
+      width: 73%
+      justify-content: space-between
+      &_money
+        width: 64%
+        text-align: center
+        font-size: 2.375rem
+        font-weight: 700
+        color: #444547
+  &__blk
+    &__date_time
+      margin-top: 20px
+      color: #444547
+      background-color: rgba(232, 232, 232, .85)
+      font-size: .75rem
+      font-weight: 700
+      &__txt
+        text-align: right
+        padding-right: 10px
+        padding-top: 1px
+        padding-bottom: 1px
+    &__amount_money
+      font-size: 2.375rem
+      font-weight: 700
+      color: #444547
+      text-align: center
+    &__profile
+      display: flex
+      justify-content: center
+      align-items: center
+      padding-top: 10px
+      padding-bottom: 6px
+      width:100%
+      &__img
+        max-width: 30px
+        text-align: center
+        width: 30%
+        padding-top: 3.5px
+        padding-bottom: 3.5px
+        height: 30px
+        border-radius: 50%
+        border:1px solid rgba(112,112,112,45%)
+        img
+          width: 78%
+          max-width: 18px
+          margin-left: auto
+          margin-right: auto
+          object-fit: cover
+      &__name
+        font-size: 1.375rem
+        font-weight: 500
+        width:38%
+        text-align: center
+    &__item
+      li
+        display: flex
+        border-top: 1px solid rgba(191, 192, 192, .53)
+        padding-top: 7px
+        padding-right: 10px
+        padding-bottom: 7px
+        padding-left: 14px
+        text-transform: uppercase
+        &:last-child
+          border-bottom: 1px solid rgba(191, 192, 192, .53)
+      &__img
+        max-width: 60px
+        margin-right: 3%
+        img
+          box-shadow: 0 3px 6px rgba(0, 0, 0, .16)
+      &__txt
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        font-size: .75rem
+        width: 270px
+        &__quantity
+          text-align: right
+          font-weight: 700
+    &__breadcrumb
+      display: flex
+      width: 99.8%
+      margin-left: auto
+      margin-right: auto
+      margin-top: 14px
+      margin-bottom: 0
+      outline: 1px solid rgba(112, 112, 112, .45)
+      font-size: .775rem
+      font-weight: 700
+      z-index: 1
+      li
+        width: 40%
+        position: relative
+        background-color:#fff
+        display: flex
+        padding-top: 13px
+        padding-left: 15px
+        padding-bottom: 13px
+        justify-content: center
+        &.active
+          background-color: #60b0d4
+          color: #fff
+          &::after
+            background-color:#60b0d4
+        &::after
+          content: ""
+          position: absolute
+          display: inline-block
+          width: 45px
+          padding-top: 22px
+          padding-bottom: 20px
+          top: 0
+          right: -22px
+          background-color:#fff
+          border-radius: 0 5px 0 50px
+          transform: scale(0.707) rotate(45deg)
+          z-index: 1
+          &:first-child
+            padding-left: 10%
+          &:last-child
+            padding-right: 10%
+        &:last-child
+          &::after
+            display: none
+
+/* template_management */
+.template_management
+  &__select_template_menu
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    width: 83%
+    flex-wrap: wrap
+    margin-right: auto
+    margin-left: auto
+    li
+      border: 1px solid #707070
+      border-radius: 10px
+      width: 35%
+      margin-bottom: 20px
+      a    
+        text-align: center
+        flex-direction: column
+        align-items: center
+        display: flex
+        padding-top: 12px
+        padding-bottom: 5px
+        font-size: 0.75rem
+        line-height: 2
+        font-weight: 700
+        .ico
+          font-size: 2.188rem
+          padding-bottom: 2px
+  &__select_template_txt
+    display: flex
+    align-items: center
+    padding-bottom: 8px
+    .ico
+      font-size: 1.25rem
+      padding-right: 6px
+    p
+      font-size: 1rem
+      font-weight: 700
+  &__dropdown_menu
+    position: relative
+    &__btn
+      @include notofont
+      font-size: .75rem
+      border-radius: 8px
+      color: #444547
+      border: 1px solid #d7d7d7
+      cursor: pointer
+      font-weight: 700
+      width: 100%
+      padding-top: 8px
+      padding-right: 10px
+      padding-bottom: 8px
+      padding-left: 10px
+      outline: none
+      appearance: none
+      background: url(../../images/ico_eject.png)
+      background-position-x: 98%
+      background-position-y: 50%
+      background-repeat: no-repeat
+      background-size: 9px 10px
+      option
+        font-size: .75rem
+        font-weight: 700
+        color: #444547
+        border-bottom: 1px solid #d7d7d7
+        &:last-child
+          border-bottom: none
+  #change
+    .shop_btn
+      margin-bottom: 0
+      padding-top: 8px
+      padding-bottom: 9px
+    .bg_col
+      background-color: #60b0d4
+      color: #fff
+      border: 1px solid #60b0d4
+      span
+        color: #fff
+    .alert_modal__form
+      top: 2%
+      transform: translate(-50%,0)
+      width:335px
+      padding-right: 17.5px
+      padding-left: 17.5px
+      border-radius: 24px
+      padding-top: 13px
+      overflow-y: scroll
+      height: 95%
+      &__close 
+        top: 0
+        right:5%
+        background-color: rgba(112,112,112, 45%)
+        position: sticky
+        left: 300px
+        padding-top: 7px
+        padding-left: 11px
+        padding-bottom: 11px
+        padding-right: 11px
+        i
+          color:#fff
+          padding-top: 0
+          padding-left: 0
+          padding-bottom: 0
+          padding-right: 0
+      &__ttl
+        font-size: .75rem
+        padding-top:0
+      .text
+        font-size: .75rem
+        font-weight: 500
+        padding-bottom: 20px
+        padding-left: 5px
+      .template,&__template01
+        padding-bottom: 30px
+        i
+          padding-left: 10px
+          padding-right: 5px
+          font-size: 1.3rem
+          padding-top: 4px
+        .template_ttl
+          font-size: 1rem
+          font-weight: 700
+          border-bottom: 1px solid rgba(191, 192, 193,53%)
+          padding-bottom: 8px
+          margin-bottom: 9px
+          border-radius: 3px
+        &__txt
+          padding-bottom: 20px
+        &__img_blk
+          width:100%
+          display: flex
+          flex-direction: row
+          margin-bottom: 30px
+      &__template02
+        &__img_blk
+          width:100%
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          margin-bottom: 30px
+          li
+            width:49%
+      &__template03
+        &__img_blk
+          width:100%
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          margin-bottom: 30px
+          li
+            width: 32%
+  &__theme_switch
+    padding-top: 20px
+    div
+      width: 100%
+      padding-bottom: 20px
+  &__theme_switch.one_col
+    padding-top: 20px
+    div.one_col
+      width: 100%
+      padding-bottom: 20px
+  &__theme_switch.two_col
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    padding-top: 20px
+    div.two_col
+      width: 45%
+      padding-bottom: 20px
+  &__theme_switch.three_col
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    padding-top: 20px
+    div.three_col
+      width: 32%
+      padding-bottom: 20px
+    
+.product_sale
+  &__list
+    &__flex
+      display: flex
+      margin-bottom: 20px
+      justify-content: space-between
+      &__img_blk
+        width: 39.2%
+        margin-right: 10px
+        img
+          height: 135px
+          object-fit: cover
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16)
+      &__txt_blk
+        width: 58%
+        a
+          font-size: .875rem
+          font-weight: 500
+          display: -webkit-box  
+          -webkit-line-clamp: 3
+          -webkit-box-orient: vertical  
+          word-break: break-all
+          max-height: 100px
+          overflow: hidden
+        &__ico_list
+          margin-top: 11px
+          display: flex
+          justify-content: space-between
+          li
+            width: 31%
+            border: 1px solid rgba(112, 112, 112, .45)
+            border-radius: 10px
+            a,button
+              font-size: .75rem
+              font-weight: 700
+              display: flex
+              flex-direction: column
+              align-items: center
+              padding-top: 10px
+              padding-bottom: 5px
+              width: 100%
+              background: transparent
+              border: none
+              color: $color1
+              i
+                font-size: 1.7rem
+          .product_list
+            border: unset
+            a 
+              color: #2257bf
+  &__button
+    .shop_btn
+      width: 100%
+      padding-top: 8px
+      padding-bottom: 9px
+#product_list,#product_initial
+    .alert_modal__form
+      width:335px
+      border-radius: 25px
+      padding-top: 28px
+      padding-left: 18px
+      padding-right: 18px
+      padding-bottom: 28px
+      &__ttl
+        font-size: 1rem
+        font-weight: 700
+        text-align: left
+        padding-top: 0
+      &__dropdown_menu
+        position: relative
+        &__btn
+          @include notofont
+          font-size: .75rem
+          border-radius: 4px
+          color: #444547
+          border: 1px solid #d7d7d7
+          cursor: pointer
+          font-weight: 700
+          width: 100%
+          padding-top: 7.5px
+          padding-right: 10px
+          padding-bottom: 7.5px 
+          padding-left: 10px
+          outline: none
+          appearance: none
+          background: url(../../images/ico_eject.png)
+          background-position-x: 98%
+          background-position-y: 50%
+          background-repeat: no-repeat
+          background-size: 9px 10px
+          option
+            font-size: .75rem
+            font-weight: 700
+            color: #444547
+            border-bottom: 1px solid #d7d7d7
+            &:last-child
+              border-bottom: none
+      &__button
+        margin-top: 15px
+        .shop_btn 
+          margin-bottom: 0
+
+/* shop_sale */
+.shop_sale
+  .calendar_type
+    display: flex
+    justify-content: space-around
+    li
+      width: 50%
+      text-align: center
+      a
+        padding-top: 11px
+        padding-bottom: 11px
+        line-height: 1.6
+        width: 100%
+        font-weight: 700
+        display: block
+        background-color: #f8f8f8 
+        font-size: 0.875rem 
+        &:hover
+          opacity: 1  
+    .active
+      a
+        background-color: #e8e8e8
+  .calendar_data
+    &__content
+      display: none
+      &:first-child      
+        display: block
+    .picker
+      position: relative
+      color: #444547
+      background-color: #e8e8e8 
+      &__prev,&__next
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        border: none
+        background: none
+        font-size: 1.5rem
+        line-height: 1.2
+        cursor: pointer
+        &:hover
+          opacity: 0.7
+      &__prev        
+        left: 3.5%
+      &__next
+        right: 3.5%
+  &__datetime_picker
+    width: 100%
+    border: none
+    outline: none
+    padding-top: 11px
+    padding-bottom: 11px
+    padding-left: 5px
+    padding-right: 5px 
+    font-size: 1.125rem
+    line-height: 1.6
+    font-weight: 700
+    text-align: center
+    background-color: transparent
+    cursor: pointer
+    color: $color1
+    @include notofont()
+  &__data_list
+    li
+      font-weight: 700
+      line-height: 1.2
+    .store_list
+      p
+        padding-top: 55px
+    &__data
+      padding-top: 16px
+      padding-bottom: 17px
+      text-align: center
+      border-bottom: 1px solid #dddede
+    &__name
+      font-size: 0.75rem
+      color: #444547
+      text-align: center
+    &__value
+      font-size: 2.375rem
+      color: #444547
+      padding-bottom: 5px
+    &__difference
+      font-weight: 700
+      color: #d25f6c
+      font-size: 1.125rem
+      span
+        font-size: .625rem
+        font-weight: 700
+        display: block
+    &__stores
+      color: #2f3231
+      padding-top: 5px
+      padding-left: 10px
+      padding-right: 10px
+      li        
+        border-bottom: 1px solid #dddede
+        padding-left: 13px
+        padding-right: 8px
+        a
+          width: 100%
+          padding-right: 20px
+          display: block
+          padding-left: 30px
+          padding-top: 11px
+          margin-bottom: 11px
+          position: relative
+          font-size: 1rem
+          display: -webkit-box
+          -webkit-line-clamp: 3
+          -webkit-box-orient: vertical
+          word-break: break-all
+          max-height: 70px
+          overflow: hidden
+          &::before
+            position: absolute
+            content: ''
+            left: 0
+            width: 20px
+            height: 20px
+            background: url('../../images/ico_img_blod.png') no-repeat center/cover
+          &::after
+            position: absolute
+            content: '\f101'
+            font-family: 'Font Awesome 6 Free'
+            right: 0
+            top: 7px
+            font-size: 1.25rem
+
+/* sale_detail */
+.sale_detail
+  color: $color1
+  &__product_info
+    &__txt
+      font-size: 0.875rem
+      line-height: 1.4
+      padding-top: 9px
+      padding-left: 5px
+      font-weight: 500
+      letter-spacing: 0
+      padding-bottom: 30px
+    .product_info_lists__data
+      &:last-child
+        .sale_ttl
+          padding-top: 0
+  .product_info_lists
+    &__data
+      margin-bottom: 5px
+    .sale_ttl
+      text-align: left
+      padding-top: 10px
+      margin-left: -5px
+    .name
+      padding-top: 0
+      span
+        font-size: .75rem
+        font-weight: 500
+        background: $color1
+        border-radius: 3px
+        color: #fff
+        margin-left:5px
+        padding-left: 5px
+        padding-right: 5px
+        padding-bottom: 2px
+  .product_image_list
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    padding-top: 10px
+    li
+      width: 29%   
+      margin-bottom: 10px
+  &__additional_info
+    background-color: #fdfdfd
+    border-top: 1px solid #dddede
+    border-bottom: 1px solid #dddede
+    padding-top: 15px
+    &__txt
+      font-size: 0.75rem
+      line-height: 1.3
+      font-weight: 500
+      letter-spacing: 0
+      padding-top: 15px
+      padding-left: 16px
+      padding-right: 10px
+    .product_info_lists
+      &__data
+        &:nth-child(2)
+          .sale_ttl
+            padding-top: 0
+          textarea
+            width: 97%
+            margin-top: 8px
+            margin-left: 5px
+            border-radius: 3px
+            border: 1px solid rgba(112, 112,112 ,0.45 )
+            padding-top: 10px
+            padding-left: 10px
+            padding-right: 5px
+            padding-bottom: 5px
+            outline: none
+            resize: none
+            font-size: 1rem
+            color: $color1
+            line-height: 1.2
+            @include notofont()
+          ::placeholder              
+            font-size: 0.75rem
+            font-weight: 700
+            color: rgba(112,112,112,45%)
+        &:last-child
+          .sale_ttl
+            padding-top: 2px
+          .update_status
+              @include btn01()
+              padding-top: 11.5px
+              padding-bottom: 11.5px
+              margin-bottom: 60px
+              border-radius: 5px
+              width: 100%
+              border:1px solid rgba(112,112,112,45%)
+              background:#fff
+              p 
+                color: #444547
+          .sale_status
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            padding-top: 17px
+            padding-bottom: 42px
+            width: 61%
+            margin-left: auto
+            margin-right: auto
+            &__status_btn
+              cursor: pointer
+              outline: none
+              background-color: #fff
+              border: 1px solid #bebebe
+              color: $color1
+              &:hover,&:active
+                background-color: #60b0d4
+                opacity: 1
+                color: #fff
+              p
+                font-weight: 700
+                line-height: 1.2
+            .open_close_status
+              width: 48%
+              text-align: center
+              padding-top: 20px
+              padding-bottom: 6px
+              border-radius: 10px
+              i
+                font-size: 1.688rem
+                padding-bottom: 10px
+              p
+                font-size: 0.75rem
+            .active
+              background-color: #60b0d4
+              opacity: 1
+              color: #fff
+      .product_image_list
+        .custom_upload
+          background-color: #f7f7f7
+          border-radius: 2px
+          border: 1px solid #b0b0b0
+          position: relative
+          height: 100px
+          overflow: hidden
+          a
+            cursor: pointer
+            display: block
+            height: 100px
+          img
+            object-fit: cover
+          .upload_button
+            display: block
+            height: 100%
+            width:100%
+            cursor: pointer
+            position: relative
+            margin-top:-20px
+            .plus_sign
+              cursor: pointer
+              position: absolute
+              top: 50%
+              left: 50%
+              transform: translate(-50%,-50%)
+              width: 18px
+              height: 40px        
+          .image_remove_btn
+            position: absolute
+            right: 3px
+            top: 0
+            font-size: 1.125rem
+            cursor: pointer
+            .fa-solid
+              color: #fff
+  &__handle_product
+    padding-top: 6px
+    .link_btn
+      display: block
+      margin-top: 15px
+      padding-top: 7px
+      padding-bottom: 7px
+      font-size: 1.125rem
+      font-weight: 700
+      text-align: center
+      background-color: #e8e8e8
+      border-radius: 50px
+      position: relative
+      &::after
+        position: absolute
+        content: '\f101'
+        font-family: 'Font Awesome 6 Free'
+        right: 5%
+        top: 50%
+        transform: translateY(-50%)
+        font-size: 1.25rem
+  .shop_btn_group
+    .shop_btn
+      padding-top: 8px
+      padding-bottom: 9px
+      outline: none
+.alert_bg
+  background-color: rgba(68, 69, 71,0.85 )
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  right: 0
+  z-index: 1002
+  display: none
+.show
+  display: block
+
+/* datetimepicker */
+.ui-datepicker
+  @include notofont()
+  z-index: 1003 !important
+  top: 50% !important
+  transform: translateY(-50%)
+// Sale Management
+.sale_management
+  .calendar_data
+    .picker__prev,.picker__next
+      font-size: 1.125rem
+      line-height: 1.5
+      font-weight: 700
+
+/* product_sale_available */
+.sale_available
+  .product_sale__list__flex__txt_blk__ico_list
+    justify-content: flex-end
+  .product_sale__list__flex__img_blk
+    position: relative
+    .img_ttl
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+      font-size: .875rem
+      color: #fff
+      font-weight: 700
+      line-height: 1.5
+      width:100%
+      height:100%
+      background: rgba(68,69,71,62%)
+      span
+        text-align: center
+        display: block
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        
+@media screen and (max-width: $breakpoint-mobile)
+  .alert_modal__form
+    width: 90%
+  #product_list,#product_initial
+      background-color: rgba(68, 69, 71, 85%)
+      .alert_modal__form
+        width: 90%
+  .shop_sale
+    .inner
+      width: 100%
+  .template_management
+    #change
+      .alert_modal__form
+        width:90%
+        &__close 
+          left:90%
